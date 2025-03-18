@@ -9,7 +9,7 @@ Sigue estos pasos para ejecutar el proyecto en tu entorno local:
 1.  **Clonar el repositorio:**
 
     ```bash
-    Estara publico despues de que terminen las evaluaciones del bootcamp
+    https://github.com/Zprit3/Proyecto_Certificacion_Bootcamp_Python.git
     ```
 
 2.  **Crear un entorno virtual:**
@@ -65,4 +65,4 @@ Las dependencias del proyecto se encuentran en el archivo `requirements.txt`.
 *   `gestion/`: Aplicación para la gestión de la autoescuela.
 *   `landing/`: Aplicación para las páginas públicas (inicio, nosotros, etc.).
 *   `templates/`: Plantillas HTML.
-*   `static/`: Archivos estáticos (CSS, JavaScript, imágenes).
+*   `static/`: Archivos estáticos (CSS, JavaScript).
