@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}Gestionar Prácticas de {{ alumno.user.first_name }} {{ alumno.user.last_name }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Gestionar Prácticas de {{ alumno.user.first_name }} {{ alumno.user.last_name }}</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Asignar Prácticas</button>
+    </form>
+
+    {% if practicas_alumno %}
+        <h2>Prácticas Asignadas</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Práctica</th>
+                    <th>Instructor</th> 
+                    <th>Fecha</th> 
+                    <th>Hora</th> 
+                    <th>Vehículo</th> 
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for practica_alumno in practicas_alumno %}
+                    <tr>
+                        <td>{{ practica_alumno.practica.nombre }}</td>
+                        <td>
+                            {% if practica_alumno.instructor %}
+                                {{ practica_alumno.instructor }} 
+                            {% else %}
+                                - 
+                            {% endif %}
+                        </td>
+                        <td>{{ practica_alumno.fecha|date:"d/m/Y"|default:"-" }}</td> 
+                        <td>{{ practica_alumno.hora|time:"H:i"|default:"-" }}</td> 
+                        <td>
+                            {% if practica_alumno.vehiculo %}
+                                {{ practica_alumno.vehiculo.modelo }} 
+                            {% else %}
+                                - 
+                            {% endif %}
+                        </td>
+                        <td>{{ practica_alumno.estado }}</td>
+                        <td>
+                            <a href="{% url 'editar_practica' practica_alumno.pk %}" class="btn btn-sm btn-warning">Editar</a>
+                            <form method="post" action="{% url 'eliminar_practica_alumno' practica_alumno.pk %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Lista de Vehículos{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Lista de Vehículos</h1>
+    <a href="{% url 'crear_vehiculo' %}" class="btn btn-primary mb-3">Crear Nuevo Vehículo</a>
+
+    {% if vehiculos %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Modelo</th>
+                <th>Patente</th>
+                <th>Tipo de Transmisión</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for vehiculo in vehiculos %}
+            <tr>
+                <td>{{ vehiculo.modelo }}</td>
+                <td>{{ vehiculo.patente }}</td>
+                <td>{{ vehiculo.tipo_transmision }}</td>
+                <td>{{ vehiculo.get_estado_display }}</td> 
+                <td>
+                    <a href="{% url 'editar_vehiculo' vehiculo.pk %}" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="{% url 'eliminar_vehiculo' vehiculo.pk %}" class="btn btn-sm btn-danger">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No hay vehículos registrados.</p>
+    {% endif %}
+</div>
+{% endblock %}

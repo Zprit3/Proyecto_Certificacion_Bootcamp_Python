@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Mis Prácticas{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Mis Prácticas</h1>
+
+    {% if practicas %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Práctica</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Instructor</th>
+                    <th>Estado</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for practica in practicas %}
+                    <tr>
+                        <td>{{ practica.practica.nombre }}</td>
+                        <td>{{ practica.fecha }}</td>
+                        <td>{{ practica.hora }}</td>
+                        <td>{% if practica.instructor %}{{ practica.instructor.user.first_name }} {{ practica.instructor.user.last_name }}{% else %}-{% endif %}</td>
+                        <td>{{ practica.estado }}</td>
+                        <td>{{ practica.descripcion_resultado }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No tienes prácticas registradas.</p>
+    {% endif %}
+</div>
+{% endblock %}

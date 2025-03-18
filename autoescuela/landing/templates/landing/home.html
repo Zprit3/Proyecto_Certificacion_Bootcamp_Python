@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Inicio - Conduce Seguro{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'images/ae_pic01.jpg' %}" class="d-block w-100" alt="">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Aprende a Conducir</h5>
+                    <p>Con los mejores instructores.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/ae_pic02.jpg' %}" class="d-block w-100" alt="Segunda imagen">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Clases Prácticas</h5>
+                    <p>Con vehículos modernos y seguros.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/ae_pic03.webp' %}" class="d-block w-100" alt="Tercera imagen">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Licencia Aprobada</h5>
+                    <p>Conduce con confianza.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+    </div>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto text-center">
+                    <h2>Bienvenido a Conduce Seguro</h2>
+                    <p class="lead">Tu camino hacia una conducción segura y responsable comienza aquí. Ofrecemos una formación integral con instructores expertos y vehículos modernos.</p>
+                    <a href="{% url 'inscripcion' %}" class="btn btn-primary btn-lg">¡Inscríbete ahora!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Nuestros Servicios</h2>
+            <div class="row justify-content-center">
+                 <div class="col-md-4 mb-3 text-center">
+                    <i class="fas fa-book fa-3x text-info mb-3"></i>
+                    <h3>Clases Teóricas</h3>
+                    <p>Aprende las normas de tránsito y la teoría de la conducción de forma amena y efectiva.</p>
+                </div>
+                <div class="col-md-4 mb-3 text-center">
+                    <i class="fas fa-car fa-3x text-info mb-3"></i>
+                    <h3>Clases Prácticas</h3>
+                    <p>Practica en vehículos modernos con instructores cualificados y experimentados.</p>
+                </div>
+                <div class="col-md-4 mb-3 text-center">
+                    <i class="fas fa-file-alt fa-3x text-info mb-3"></i>
+                    <h3>Simulacros de Examen</h3>
+                    <p>Prepárate para el examen teórico y práctico con nuestros simulacros realistas.</p>
+                </div>
+                <div class="col-md-4 mb-3 text-center mx-auto">
+                    <i class="fas fa-user-graduate fa-3x text-info mb-3"></i>
+                    <h3>Clases Personalizadas</h3>
+                    <p>Adaptamos el aprendizaje a tus necesidades y horarios.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">¿Por qué elegirnos?</h2>
+            <div class="row">
+                <div class="col-md-4 text-center mb-4">
+                    <i class="fas fa-user-tie fa-3x text-success mb-3"></i>
+                    <h3>Instructores Expertos</h3>
+                    <p>Contamos con un equipo de instructores altamente capacitados y con amplia experiencia.</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <i class="fas fa-car-side fa-3x text-success mb-3"></i>
+                    <h3>Vehículos Modernos</h3>
+                    <p>Nuestra flota de vehículos está equipada con la última tecnología en seguridad.</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <i class="fas fa-chart-line fa-3x text-success mb-3"></i>
+                    <h3>Alto Índice de Aprobación</h3>
+                    <p>Nuestros alumnos tienen un alto índice de éxito en los exámenes de conducir.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+{% endblock %}

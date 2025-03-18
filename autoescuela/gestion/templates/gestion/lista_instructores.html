@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Instructores{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Lista de Instructores</h1>
+
+    <a href="{% url 'crear_instructor' %}" class="btn btn-primary mb-3">Crear Nuevo Instructor</a>
+
+    {% if instructores %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo Electrónico</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for instructor in instructores %}
+                    <tr>
+                        <td>{{ instructor.user.first_name }} {{ instructor.user.last_name }}</td>
+                        <td>{{ instructor.user.email }}</td>
+                        <td>
+                            <a href="{% url 'editar_instructor' instructor.pk %}" class="btn btn-sm btn-warning">Editar</a>
+                            <a href="{% url 'eliminar_instructor' instructor.pk %}" class="btn btn-sm btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No hay instructores registrados.</p>
+    {% endif %}
+</div>
+{% endblock %}

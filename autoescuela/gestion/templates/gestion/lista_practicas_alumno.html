@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Prácticas de {{ alumno.user.first_name }} {{ alumno.user.last_name }}{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Prácticas de {{ alumno.user.first_name }} {{ alumno.user.last_name }}</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Tipo</th>
+                <th>Nombre</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for practica in practicas %}
+            <tr>
+                <td>{{ practica.practica.get_tipo_display }}</td>
+                <td>{{ practica.practica.nombre }}</td>
+                <td>{{ practica.estado }}</td>
+                <td>
+                    <a href="{% url 'editar_practica' practica.pk %}" class="btn btn-sm btn-warning">Editar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

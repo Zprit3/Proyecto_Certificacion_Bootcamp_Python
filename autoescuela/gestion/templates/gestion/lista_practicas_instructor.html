@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Prácticas{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Prácticas</h1>
+
+    {% if practicas %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Alumno</th>
+                <th>Práctica</th>
+                <th>Tipo</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Estado</th>
+                <th>Resultado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for practica in practicas %}
+            <tr>
+                <td>{{ practica.alumno.user.first_name }} {{ practica.alumno.user.last_name }}</td>
+                <td>{{ practica.practica.nombre }}</td>
+                <td>{{ practica.practica.get_tipo_display }}</td>
+                <td>{{ practica.fecha|date:"d/m/Y"|default:"-" }}</td>
+                <td>{{ practica.hora|time:"H:i"|default:"-" }}</td>
+                <td>{{ practica.estado }}</td>
+                <td>{{ practica.descripcion_resultado|default:"-" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>No tienes prácticas asignadas.</p>
+    {% endif %}
+</div>
+{% endblock %}

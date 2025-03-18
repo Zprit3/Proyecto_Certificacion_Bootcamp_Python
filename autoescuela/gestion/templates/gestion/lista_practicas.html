@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Lista de Prácticas{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Lista de Prácticas</h1>
+    <a href="{% url 'crear_practica' %}" class="btn btn-primary mb-3">Crear Nueva Práctica</a>
+
+    {% if practicas %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Tipo</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for practica in practicas %}
+            <tr>
+                <td>{{ practica.get_tipo_display }}</td>
+                <td>{{ practica.nombre }}</td>
+                <td>{{ practica.descripcion }}</td>
+                <td>
+                    <a href="{% url 'editar_practica_general' practica.pk %}" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="{% url 'eliminar_practica' practica.pk %}" class="btn btn-sm btn-danger">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No hay prácticas registradas.</p>
+    {% endif %}
+</div>
+{% endblock %}

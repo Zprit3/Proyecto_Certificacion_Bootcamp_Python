@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Crear Alumno{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Crear Nuevo Alumno</h1>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ alumno_form.as_p }}
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="{% url 'lista_alumnos' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

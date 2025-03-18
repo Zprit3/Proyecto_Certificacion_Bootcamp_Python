@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %}Nosotros - Conduce Seguro{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Sobre Nosotros</h1>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title">Nuestra Misión</h2>
+                    <p class="card-text">Formar conductores responsables y seguros, comprometidos con el respeto a las normas de tránsito y la seguridad vial.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title">Nuestra Visión</h2>
+                    <p class="card-text">Ser la autoescuela líder en la región, reconocida por la calidad de nuestra enseñanza y el compromiso con la seguridad vial.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title">Nuestros Valores</h2>
+            <div class="row justify-content-center"> {# Usamos row directamente aquí #}
+                <div class="col-md-auto mx-3 mb-2 text-center"> {# Columnas centradas y con margen #}
+                    <i class="fas fa-check-circle text-success fa-2x mb-2"></i>
+                    <p>Responsabilidad</p>
+                </div>
+                <div class="col-md-auto mx-3 mb-2 text-center">
+                    <i class="fas fa-check-circle text-success fa-2x mb-2"></i>
+                    <p>Seguridad</p>
+                </div>
+                <div class="col-md-auto mx-3 mb-2 text-center">
+                    <i class="fas fa-check-circle text-success fa-2x mb-2"></i>
+                    <p>Compromiso</p>
+                </div>
+                <div class="col-md-auto mx-3 mb-2 text-center">
+                    <i class="fas fa-check-circle text-success fa-2x mb-2"></i>
+                    <p>Excelencia</p>
+                </div>
+                <div class="col-md-auto mx-3 text-center">
+                    <i class="fas fa-check-circle text-success fa-2x mb-2"></i>
+                    <p>Respeto</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title">Nuestros Servicios</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-3 text-center">
+                    <i class="fas fa-cogs text-info fa-2x mb-2"></i>
+                    <p>Clases teóricas</p>
+                </div>
+                <div class="col-md-4 mb-3 text-center">
+                    <i class="fas fa-car text-info fa-2x mb-2"></i>
+                    <p>Clases prácticas (Clase A, Clase B, Clase C)</p>
+                </div>
+                <div class="col-md-4 mb-3 text-center">
+                    <i class="fas fa-file-alt text-info fa-2x mb-2"></i>
+                    <p>Simulacros de examen</p>
+                </div>
+                <div class="col-md-4 mb-3 text-center">
+                    <i class="fas fa-plus-circle text-info fa-2x mb-2"></i>
+                    <p>Otros servicios (ej: Clases personalizadas, etc.)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <img src=https://seguroresponsabilidadcivilprofesional.com/wp-content/uploads/2020/01/autoescuela.jpg alt="Imagen sobre nosotros" class="img-fluid rounded shadow-lg mx-auto d-block" style="max-width: 800px;">
+</div>
+{% endblock %}
